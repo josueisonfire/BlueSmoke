@@ -10,7 +10,7 @@
 # ===============================================================
 
 from flask import Flask, render_template, redirect
-import MySQLdb
+# import MySQLdb
 from werkzeug import generate_password_hash, check_password_hash
 
 
@@ -36,4 +36,4 @@ def login():
 # ===============================================================
 
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=True)
+    app.run(debug=True, port = 5002)
