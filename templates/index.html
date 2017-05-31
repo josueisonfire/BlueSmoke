@@ -1,0 +1,49 @@
+<!-- Index page for ARS. Here the user will use a unique device ID
+ that is povided to the user to authenticate. 
+ Login via email, an password will be added in a later iteration
+
+ @version : 1.0.0 
+ @author 	: nuwanwre
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- TODO : Add meta tags -->
+		
+		<title>BlueSmoke - Authenticate</title>
+		
+		<!-- Favicon -->
+		<link ref = icon href = "#">
+		
+		<!-- Fonts from Google fonts CDN -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+		
+		<!-- Styling from Bootstrap, additional sytles will overrided 
+		by local style sheets -->
+		<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../static/index.css" rel="stylesheet">
+	</head>
+	
+	<!-- ===================================================== -->
+	
+	<body>
+	
+		<div class = "container text-center">
+			<div class = "panel panel-default">
+				<div class = "panel-heading">Enter device ID to authenticate</div>
+				
+				<div class = "panel-body">
+					<form class = "form-horizontal" action = "#">
+						<input type = "text" class = "form-control" id = "deviceID" placeholder = "Enter device ID" name = "deviceID" required>
+						
+						<button type = "submit" class = "btn btn-primary" id = "authenticate">Authenticate</button>
+ 					</form>
+				</div>
+			</div>
+		</div>
+	
+	</body>
+
+</html>
+	

@@ -1,0 +1,17 @@
+body {
+	font-family: 'Roboto Slab', serif;
+	background-color: cadetblue;
+}
+
+.panel {
+	margin : 300px auto;
+	width : 40%;
+}
+
+.panel-heading{
+	font-size: 20px;
+}
+
+.btn{
+	margin-top: 10px;
+}
