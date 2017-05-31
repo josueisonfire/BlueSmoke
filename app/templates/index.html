@@ -14,7 +14,7 @@
 		<title>BlueSmoke - Authenticate</title>
 		
 		<!-- Favicon -->
-		<link ref = icon href = "../static/img/icon.png">
+		<link rel = "shortcut icon" href = "/favicon.ico">
 		
 		<!-- Fonts from Google fonts CDN -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
@@ -29,13 +29,18 @@
 	<!-- ===================================================== -->
 	
 	<body>
+		
+		<!-- Navbar -->
+		<nav class = "navbar navbar-default">
+			<div class="logo">BlueSmoke Labs - CAS</div>
+		</nav>
 	
 		<div class = "container text-center">
 			<div class = "panel panel-default">
 				<div class = "panel-heading">Enter device ID to authenticate</div>
 				
 				<div class = "panel-body">
-					<form class = "form-horizontal">
+					<form class = "form-horizontal" action="/validateDevice" method="POST">
 						<input type = "text" class = "form-control" id = "deviceID" placeholder = "Enter device ID" name = "deviceID" required>
 						
 						<button type = "submit" class = "btn btn-primary" id = "authenticate">Authenticate</button>

@@ -1,0 +1,30 @@
+body {
+	font-family: 'Roboto Slab', serif;
+	background-color: cadetblue;
+}
+
+.navbar {
+	text-align: center;
+	font-family: 'Roboto Slab', serif;
+	font-size: 20px;
+	color: white;
+	background-color: black;
+	border-color: black;
+}
+
+.logo {
+	margin-top: 10px;
+}
+
+.panel {
+	margin : 250px auto;
+	width : 40%;
+}
+
+.panel-heading{
+	font-size: 20px;
+}
+
+.btn{
+	margin-top: 10px;
+}
