@@ -28,7 +28,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def login():
-    return render_template('index.html')
+	return render_template('index.html')
+	
+@app.route('/favicon.ico')
+def favicon():
+	return send_from_directory(os.path.join(app.root_path, ''),
+                               'favicon.ico', mimetype='image/png')
 	
 	
 # ===============================================================
