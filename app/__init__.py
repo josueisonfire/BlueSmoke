@@ -7,9 +7,17 @@
 # @author : nuwanwre
 # ==============================================================
 
-from flask import Flask
+from flask import Flask, send_from_directory
+import os
 
 app = Flask(__name__)
+app.config.from_object('config')	# reference to config.py
 
-# import here to prevent circular reference at views
+# Route to add a favicon : Working
+@app.route('/favicon.ico')
+def favicon():
+	return send_from_directory(os.path.join(app.root_path, ''),
+                               'favicon.ico', mimetype='image/png')
+
+# import here to prevent circular reference at views.py
 from app import views

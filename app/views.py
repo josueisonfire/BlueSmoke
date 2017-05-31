@@ -9,6 +9,7 @@
 #													IMPORTS
 # ===============================================================
 from app import app
+
 from flask import Flask, render_template, redirect, request, session, send_from_directory
 # import MySQLdb
 import os
@@ -22,14 +23,12 @@ from werkzeug import generate_password_hash, check_password_hash
 # ==============================================================
 
 
-SECRET_KEY = 'bluesmoke'
 # ===============================================================
 #											APP CONFIGURATIONS
 # ===============================================================
 
 #app = Flask(__name__)
 #app.config.from_object('config')	# load config.py
-app.secret_key = SECRET_KEY
 
 
 # ===============================================================
@@ -39,14 +38,7 @@ app.secret_key = SECRET_KEY
 # Starting point
 @app.route('/')
 def login():
-	return render_template('index.html')
-
-
-# Route to add a favicon : Not working
-@app.route('/favicon.ico')
-def favicon():
-	return send_from_directory(os.path.join(app.root_path, ''),
-                               'favicon.ico', mimetype='image/png')
+	return render_template('index.html', title = 'Please enter device ID to continue')
 
 # Route to validate a device
 @app.route('/validateDevice', methods = ['POST', 'GET'])
@@ -64,7 +56,7 @@ def validateDevice():
 	if(session['user'] == deviceID):
 		return "Validated"
 	else:
-		return "Device validation failed"
+		return render_template('index.html', error = 'Sorry try again')
 	
 # ===============================================================
 #														MAIN():
