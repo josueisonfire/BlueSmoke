@@ -26,7 +26,7 @@ app = Flask(__name__)
 #													APP ROUTES
 # ===============================================================
 
-@app.route('.')
+@app.route('/')
 def login():
     return render_template('index.html')
 	
