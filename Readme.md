@@ -1,9 +1,8 @@
-# BlueSmoke Labs - Cloud-Based, User-Friendly Biometric Attendance System
-
 [![Build Status](https://travis-ci.com/nuwanwre/BlueSmoke.svg?token=1z3xh4vnpfYyonxSVqfV&branch=master)](https://travis-ci.com/nuwanwre/BlueSmoke)
 
-![BlueSmoke](/app/static/img/icon.png?raw=true "Optional Title")
+# BlueSmoke Labs - Cloud-Based, User-Friendly Biometric Attendance System
 
+![BlueSmoke](/app/static/img/favicon.ico?raw=true "Optional Title")
 
 This repository conatins all the sirue files for the system. Python requirements for the app to function are included in the **requirements.txt** file. 
 
