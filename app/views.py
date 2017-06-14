@@ -10,7 +10,7 @@
 # ===============================================================
 from app import app
 
-from flask import Flask, render_template, redirect, request, session, send_from_directory
+from flask import Flask, render_template, redirect, request, session
 # import MySQLdb
 import os
 from werkzeug import generate_password_hash, check_password_hash
@@ -57,6 +57,39 @@ def validateDevice():
 		return "Validated"
 	else:
 		return render_template('index.html', error = 'Sorry try again')
+	
+# Route to display main page
+@app.route('/home')
+def home():
+	try:
+		return render_template('home.html')
+	except Exception as e:
+		return str(e)
+	
+# Route to display base html
+@app.route('/base', methods = ['GET'])
+def base():
+	try:
+		return render_template('base.html')
+	except Exception as e:
+		return str(e)
+	
+# Route to generate the tab
+@app.route('/getTab', methods = ['GET'])
+def getTab():
+	try:
+		index = int(request.args.get('Tab'))
+		if (index == 0):
+			return render_template('roster.html')
+		elif (index == 1):
+			return render_template('attendance.html')
+		elif (index == 2):
+			return render_template('statistics.html')
+		else: 
+			return str(index)
+		
+	except Exception as e:
+		return str(e)
 	
 # ===============================================================
 #														MAIN():

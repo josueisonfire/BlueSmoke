@@ -1,0 +1,98 @@
+<!-- 
+ Home page, this page manages all the tabs and behaves as a single
+ interface, assuming that the user has already logged in, and a 
+ session has been saved. 
+
+ Some forms will be rendered via python
+
+ @version : 1.0.0 
+ @author 	: nuwanwre via Bluesmoke labs. C412
+-->
+
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<!-- TODO : Add meta tags -->
+	 <meta charset="UTF-8"> 
+		
+		<title>BlueSmoke - Home</title>
+		
+		<!-- Favicon -->
+		<link rel = "shortcut icon" href = "/favicon.ico">
+		
+		<!-- Fonts from Google fonts CDN -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+		
+		<!-- Styling from Bootstrap, additional sytles will overrided 
+		by local style sheets -->
+		<!-- Avoid using http:// so that Heroku can load via https://-->
+		<link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../static/home.css" rel="stylesheet">
+		
+		<!-- JS scripts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	
+	<body>		
+		
+		<!-- All elements in the are inlcuded in the container -->
+		<div class = "container">
+			
+			<!-- The top bar with user logged in -->
+			<div class = "topbar">
+				user1
+			</div>
+					 
+			<!-- Navigation tabs -->
+			<ul class = "nav nav-tabs" id = "tabs">
+				<li class = "active"><a href="#">Roster</a></li>
+				<li><a href="#">Attendance</a></li>
+				<li><a href="#">Statistics</a></li>
+				<li><a href="#">Profile</a></li>
+			</ul>
+			<script>
+				$( document ).ready(function() {
+					var index = 0;
+					
+					$.ajax({
+						url: '/getTab',
+						data: { Tab: index },
+						type: 'GET',
+						dataType: 'html',
+						success: function (data) {
+							$(data).insertAfter("#tabs");
+						},
+						error: function (response) {
+							console.log(response);
+						}
+					});
+				});
+				
+				
+				$("li").on("click", function(){
+					$("li").removeClass('active');
+					$(this).addClass('active');
+					
+					$.ajax({
+						url: '/getTab',
+						data: { Tab: $(this).index() },
+						type: 'GET',
+						dataType: 'html',
+						success: function (data) {
+							$("#tabs").nextAll().remove();
+							$(data).insertAfter("#tabs");
+						},
+						error: function (response) {
+							console.log(response)
+						}
+					});
+				});
+			</script>	
+			
+			<!-- Dynamic Content Goes Here -->
+			
+		</div>
+	</body>
+	
+</html>

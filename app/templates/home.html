@@ -1,15 +1,19 @@
-<!-- Home page, this page manaes all the tabs and behaves as a single
+<!-- 
+ Home page, this page manages all the tabs and behaves as a single
  interface, assuming that the user has already logged in, and a 
- session has been saved 
+ session has been saved. 
+
+ Some forms will be rendered via python
 
  @version : 1.0.0 
- @author 	: nuwanwre
+ @author 	: nuwanwre via Bluesmoke labs. C412
 -->
 
 <!DOCTYPE html>
 <html lang = "en">
 	<head>
 		<!-- TODO : Add meta tags -->
+	 <meta charset="UTF-8"> 
 		
 		<title>BlueSmoke - Home</title>
 		
@@ -22,8 +26,176 @@
 		<!-- Styling from Bootstrap, additional sytles will overrided 
 		by local style sheets -->
 		<!-- Avoid using http:// so that Heroku can load via https://-->
-		<link href="//getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link href="../static/home.css" rel="stylesheet">
+		
+		<!-- JS scripts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
+	
+	<body>		
+		
+		<!-- All elements in the are inlcuded in the container -->
+		<div class = "container">
+			
+			<!-- The top bar with user logged in -->
+			<div class = "topbar">
+				user1
+			</div>
+					 
+			<!-- Navigation tabs -->
+			<ul class = "nav nav-tabs" id = "tabs">
+				<li class = "active"><a href="#Roster">Roster</a></li>
+				<li><a href="#Attendance">Attendance</a></li>
+				<li><a href="#Statistics">Statistics</a></li>
+				<li><a href="#Profile">Profile</a></li>
+			</ul>
+			<script>
+				$("li").on("click", function(){
+					$("li").removeClass('active');
+					$(this).addClass('active');
+					
+					$.ajax({
+						url: '/getTab',
+						data: { Tab: $(this).index() },
+						type: 'GET',
+						dataType: 'html',
+						success: function (data) {
+							var result = $('<div />').append(data).find('#showTab').html();
+							$('#showTab').html(result);
+						},
+						error: function (response) {
+							console.log(response)
+						}
+					});
+				});
+			</script>
+			
+			
+			<!-- Menubar with buttons and dropdowns -->
+			<div class = "menubar">
+				<div class = "row">
+					<!-- Select Term Dropdown -->
+					<div class = "col-sm-2">
+						<div class="dropdown">
+							<label>Term :</label>
+							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Term
+							<span class="caret"></span></button>
+							<ul class="dropdown-menu">
+								<li><a href="#">HTML</a></li>
+								<li><a href="#">CSS</a></li>
+								<li><a href="#">JavaScript</a></li>
+							</ul>
+						</div>
+					</div>
+					
+					
+					
+					<!-- Select Class dropdown -->
+					<div class = "col-sm-2">
+						<div class="dropdown">
+							<label>Class :</label>
+							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Class
+							<span class="caret"></span></button>
+							<ul class="dropdown-menu">
+								<li><a href="#">HTML</a></li>
+								<li><a href="#">CSS</a></li>
+								<li><a href="#">JavaScript</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Summary of  Class meeting time -->
+					<div class = "col-sm-2 pull-right">
+						<h5>
+							<span class="label label-default">Class Time:</span>
+						</h5>
+					</div>
+				</div>
+
+				<!-- Seperator -->
+				<hr>
+
+				<div class = "row">
+					<!-- Add Class Button -->
+					<div class = "col-sm-1">
+						<button class = "btn btn-default btn-new">
+							<span class = "glyphicon glyphicon-plus-sign"></span>
+							Add Class
+						</button>
+					</div>
+					<!-- Edit Class Button -->
+					<div class = "col-sm-1">
+						<button class = "btn btn-default btn-new">
+							<span class = "glyphicon glyphicon-pencil"></span>
+							Edit Class
+						</button>
+					</div>
+					<!-- Add Student Button -->
+					<div class = "col-sm-2 width-override">
+						<button class = "btn btn-default btn-new">
+							<span class = "glyphicon glyphicon-user"></span>
+							Add Student
+						</button>
+					</div>
+					<!-- Edit Student Button -->
+					<div class = "col-sm-2 width-override">
+						<button class = "btn btn-default btn-new">
+							<span class = "glyphicon glyphicon-list-alt"></span>
+							Edit Student
+						</button>
+					</div>
+				</div>				
+			</div>
+
+			<!-- Scrollable div for table -->
+			<div class = "pre-scrollable">
+				<table class = "table table-bordered table-striped table-hover">
+					<thead>
+						<tr>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Student ID</th>
+							<th>Fingerprint ID</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>User1</td>
+							<td>User1</td>
+							<td>User1</td>
+							<td>User1</td>
+						</tr>
+						<tr>
+							<td>User1</td>
+							<td>User1</td>
+							<td>User1</td>
+							<td>User1</td>
+						</tr>
+						<tr>
+							<td>User1</td>
+							<td>User1</td>
+							<td>User1</td>
+							<td>User1</td>
+						</tr>
+						<tr>
+							<td>User1</td>
+							<td>User1</td>
+							<td>User1</td>
+							<td>User1</td>
+						</tr>
+						<tr>
+							<td>User1</td>
+							<td>User1</td>
+							<td>User1</td>
+							<td>User1</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			-->
+		</div>
+	</body>
 	
 </html>

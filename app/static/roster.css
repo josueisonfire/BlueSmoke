@@ -26,6 +26,10 @@ html, body {
 	margin: 1px 0px 0px 3px;
 }
 
+.col-sx-1{
+	width: None;
+}
+
 .menubar > hr{
 	color: lightgray;
 	margin: 3px 0px 1px 0px;
