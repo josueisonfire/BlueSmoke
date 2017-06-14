@@ -38,7 +38,8 @@ from werkzeug import generate_password_hash, check_password_hash
 # Starting point
 @app.route('/')
 def login():
-	return render_template('index.html', title = 'Please enter device ID to continue')
+	return "hello"
+	#return render_template('index.html', title = 'Please enter device ID to continue')
 
 # Route to validate a device
 @app.route('/validateDevice', methods = ['POST', 'GET'])
