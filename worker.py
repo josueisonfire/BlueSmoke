@@ -24,7 +24,7 @@ app.config['SECRET_KEY'] = 'secret'
 socketio = SocketIO(app)
 
 
-@app.route('/connect')
+@app.route('/')
 def index():
 	return render_template('socketIndex.html')
 	
@@ -46,5 +46,5 @@ def test_disconnect():
 
 
 if __name__ == '__main__':
-	port = int(os.environ.get("PORT", 5000))
+	port = int(os.environ.get("PORT_CONNECT", 5001))
 	socketio.run(app, debug = True, hodt = '0.0.0.0', port  = port)
