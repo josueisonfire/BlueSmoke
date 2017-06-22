@@ -9,4 +9,4 @@ Flask-WTF==0.14.2
 app==0.0.1
 rq==0.8.0
 Flask-Sockets==0.2.1
-gevent-websocket==0.10.1
+Flask-SocketIO==2.8.6
