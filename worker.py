@@ -9,33 +9,41 @@
 	@author 	: 	nuwanwre via blueSmoke. C412
 	@version 	: 	1.0.0
 	
+	CRITICAL : ** IMPLEMENT THREADS **
+	
 '''
 
-import os
-import logging
-# import redis
-import gevent
-from flask import Flask, render_template
-from flask_sockets import Sockets
 
-# REDIS_URL = os.environ['REDIS_URL']
-# REDIS_CHAN = 'device'
+from flask import Flask, render_template
+from flask_socketio import SocketIO, emit
 
 
 app = Flask(__name__)
-sockets = Sockets(app)
+app.config['SECRET_KEY'] = 'secret'
+
+socketio = SocketIO(app)
 
 
-@sockets.route('/listen')
-def listen(ws):
-	# Recieve incoming traffic
-	while not ws.closed:
-		# gevent.sleep(0.1)
-		message = ws.receive()
-		
-		if message:
-			app.logger.info(u'Inserting message  : {}'.format(message))
-		
+@app.route('/connect')
+def index():
+	return render_template('socketIndex.html')
+	
+@socketio.on('my event', namespace='/test')
+def test_message(message):
+	emit('my response', {'data': message['data']})
+
+@socketio.on('my broadcast event', namespace='/test')
+def test_message(message):
+	emit('my response', {'data': message['data']}, broadcast=True)
+
+@socketio.on('connect', namespace='/test')
+def test_connect():
+	emit('my response', {'data': 'Connected'})
+
+@socketio.on('disconnect', namespace='/test')
+def test_disconnect():
+	print('Client disconnected')
+
 
 if __name__ == '__main__':
-	app.run(debug = True, port = 1010)
+	socketio.run(app, debug = True)
