@@ -1,8 +1,8 @@
 <!-- Menubar with buttons and dropdowns -->
-<div class = "menubar">
-	<div class = "row">
+<div class="menubar">
+	<div class="row">
 		<!-- Select Term Dropdown -->
-		<div class = "col-sm-2">
+		<div class="col-sm-2">
 			<div class="dropdown">
 				<label>Term :</label>
 				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Term
@@ -18,7 +18,7 @@
 
 
 		<!-- Select Class dropdown -->
-		<div class = "col-sm-2">
+		<div class="col-sm-2">
 			<div class="dropdown">
 				<label>Class :</label>
 				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Class
@@ -30,9 +30,9 @@
 				</ul>
 			</div>
 		</div>
-		
+
 		<!-- Select Class dropdown -->
-		<div class = "col-sm-2">
+		<div class="col-sm-2">
 			<div class="dropdown">
 				<label>Query :</label>
 				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Query
@@ -46,7 +46,7 @@
 		</div>
 
 		<!-- Summary of  Class meeting time -->
-		<div class = "col-sm-2 pull-right">
+		<div class="col-sm-2 pull-right">
 			<h5>
 				<span class="label label-default">Class Time:</span>
 			</h5>
@@ -56,10 +56,10 @@
 	<!-- Seperator -->
 	<hr>
 
-	<div class = "row">
+	<div class="row">
 		<!-- Print Button -->
-		<div class = "col-sm-1 pull-right">
-			<button class = "btn btn-default btn-new">
+		<div class="col-sm-1 pull-right">
+			<button class="btn btn-default btn-new">
 				<span class = "glyphicon glyphicon-print"></span>
 				Print
 			</button>
@@ -67,7 +67,24 @@
 	</div>
 </div>
 
+
+<style>
+	.line {
+		fill: none;
+		stroke: steelblue;
+		stroke-width: 2px;
+	}
+
+	svg {
+		display: block;
+		margin: 0 auto;
+	}
+
+</style>
+
 <!-- Scrollable div for table -->
-<div class = "pre-scrollable">
-	
+<div class="pre-scrollable" id="statGraph">
 </div>
+
+<script src="../static/js/d3.min.js"></script>
+<script src="../static/js/statistics.js"></script>

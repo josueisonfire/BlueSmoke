@@ -10,89 +10,58 @@
 -->
 
 <!DOCTYPE html>
-<html lang = "en">
-	<head>
-		<!-- TODO : Add meta tags -->
-	 <meta charset="UTF-8"> 
-		
-		<title>BlueSmoke - Home</title>
-		
-		<!-- Favicon -->
-		<link rel = "shortcut icon" href = "/favicon.ico">
-		
-		<!-- Fonts from Google fonts CDN -->
-		<link href="//fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-		
-		<!-- Styling from Bootstrap, additional sytles will overrided 
+<html lang="en">
+
+<head>
+	<!-- TODO : Add meta tags -->
+	<meta charset="UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<title>BlueSmoke - {{ title }}</title>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<!-- Fonts from Google fonts CDN -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+
+	<!-- Styling from Bootstrap, additional sytles will overrided 
 		by local style sheets -->
-		<!-- Avoid using http:// so that Heroku can load via https://-->
-		<link href="//getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-		<link href="../static/home.css" rel="stylesheet">
-		
-		<!-- JS scripts -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	</head>
-	
-	<body>		
-		
-		<!-- All elements in the are inlcuded in the container -->
-		<div class = "container">
-			
-			<!-- The top bar with user logged in -->
-			<div class = "topbar">
-				user1
-			</div>
-					 
-			<!-- Navigation tabs -->
-			<ul class = "nav nav-tabs" id = "tabs">
-				<li class = "active"><a href="#">Roster</a></li>
-				<li><a href="#">Attendance</a></li>
-				<li><a href="#">Statistics</a></li>
-				<li><a href="#">Profile</a></li>
-			</ul>
-			<script>
-				$( document ).ready(function() {
-					var index = 0;
-					
-					$.ajax({
-						url: '/getTab',
-						data: { Tab: index },
-						type: 'GET',
-						dataType: 'html',
-						success: function (data) {
-							$(data).insertAfter("#tabs");
-						},
-						error: function (response) {
-							console.log(response);
-						}
-					});
-				});
-				
-				
-				$("li").on("click", function(){
-					$("li").removeClass('active');
-					$(this).addClass('active');
-					
-					$.ajax({
-						url: '/getTab',
-						data: { Tab: $(this).index() },
-						type: 'GET',
-						dataType: 'html',
-						success: function (data) {
-							$("#tabs").nextAll().remove();
-							$(data).insertAfter("#tabs");
-						},
-						error: function (response) {
-							console.log(response)
-						}
-					});
-				});
-			</script>	
-			
-			<!-- Dynamic Content Goes Here -->
-			
+	<!-- Avoid using http:// so that Heroku can load via https://-->
+	<link href="../static/bootstrap.min.css" rel="stylesheet">
+	<link href="../static/home.css" rel="stylesheet">
+
+	<!-- JS scripts -->
+	<script src="../static/js/jquery-3.2.1.min.js"></script>
+	<script src="../static/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+	<!-- All elements in the are inlcuded in the container -->
+	<div class="container">
+
+		<!-- The top bar with user logged in -->
+		<div class="topbar">
+			Demo |
 		</div>
-	</body>
-	
+
+		<!-- Navigation tabs -->
+		<ul class="nav nav-tabs" id="tabs">
+			<li class="active"><a href="#">Roster</a></li>
+			<li><a href="#">Attendance</a></li>
+			<li><a href="#">Statistics</a></li>
+			<li><a href="#">Profile</a></li>
+		</ul>
+		<script type="text/javascript" src="../static/js/base.js"></script>
+
+
+		<!-- Dynamic Content Goes Here -->
+
+	</div>
+</body>
+
 </html>

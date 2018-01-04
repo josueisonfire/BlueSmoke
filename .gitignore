@@ -1,0 +1,10 @@
+# Ignore files that are not meant for staging
+
+tmp/
+db_dumps/
+info/
+keys/
+
+# Ignore pyc files
+
+*.pyc

@@ -1,6 +1,7 @@
 <!-- Menubar with buttons and dropdowns -->
 <div class = "menubar">
 	<div class = "row">
+		
 		<!-- Select Term Dropdown -->
 		<div class = "col-sm-2">
 			<div class="dropdown">
@@ -8,13 +9,10 @@
 				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Term
 				<span class="caret"></span></button>
 				<ul class="dropdown-menu">
-					<li><a href="#">HTML</a></li>
-					<li><a href="#">CSS</a></li>
-					<li><a href="#">JavaScript</a></li>
+					<li><a href="#">-</a></li>
 				</ul>
 			</div>
 		</div>
-
 
 
 		<!-- Select Class dropdown -->
@@ -24,9 +22,7 @@
 				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Class
 				<span class="caret"></span></button>
 				<ul class="dropdown-menu">
-					<li><a href="#">HTML</a></li>
-					<li><a href="#">CSS</a></li>
-					<li><a href="#">JavaScript</a></li>
+					<li><a href="#">-</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -58,19 +54,20 @@
 			</button>
 		</div>
 		<!-- Add Student Button -->
-		<div class = "col-sm-2 width-override">
+		<div class = "col-sm-1 width-override">
 			<button class = "btn btn-default btn-new" data-toggle="modal" data-target="#AddStudent">
 				<span class = "glyphicon glyphicon-user"></span>
 				Add Student
 			</button>
 		</div>
 		<!-- Edit Student Button -->
-		<div class = "col-sm-2 width-override">
+		<div class = "col-sm-1 width-override">
 			<button class = "btn btn-default btn-new" data-toggle="modal" data-target="#EditStudent">
 				<span class = "glyphicon glyphicon-list-alt"></span>
 				Edit Student
 			</button>
 		</div>
+		
 		<!-- Print Button -->
 		<div class = "col-sm-1 pull-right">
 			<button class = "btn btn-default btn-new">
@@ -83,7 +80,8 @@
 
 <!-- Scrollable div for table -->
 <div class = "pre-scrollable">
-	<table class = "table table-bordered table-striped table-hover">
+	<table class = "table table-bordered table-striped table-hover"
+				 id = "roster">
 		<thead>
 			<tr>
 				<th>First Name</th>
@@ -92,31 +90,9 @@
 				<th>Fingerprint ID</th>
 			</tr>
 		</thead>
+		<script type = "text/javascript" src = "../static/js/roster.js"></script>
 		<tbody>
-			<tr>
-				<td>User1</td>
-				<td>User1</td>
-				<td>User1</td>
-				<td>User1</td>
-			</tr>
-			<tr>
-				<td>User1</td>
-				<td>User1</td>
-				<td>User1</td>
-				<td>User1</td>
-			</tr>
-			<tr>
-				<td>User1</td>
-				<td>User1</td>
-				<td>User1</td>
-				<td>User1</td>
-			</tr>
-			<tr>
-				<td>User1</td>
-				<td>User1</td>
-				<td>User1</td>
-				<td>User1</td>
-			</tr>
+			
 			<tr>
 				<td>User1</td>
 				<td>User1</td>
@@ -428,13 +404,13 @@
 				<h4 class="modal-title">Add Student</h4>
 			</div>
 			<div class="modal-body">
-				<form class = "form-horizontal">
+				<form class = "form-horizontal" action="/addNewStudent" method="POST">
 					<div class = "form-group">
 						<label class="control-label col-sm-3" for="fn">
 							First Name:
 						</label>
 						<div class = "col-sm-8">
-							<input type = "text" class = "form-control"  id = "fn" placeholder="Enter first name of student" required>
+							<input type = "text" class = "form-control"  name = "fn" placeholder="Enter first name of student" required>
 						</div>
 					</div>
 					<div class = "form-group">
@@ -442,7 +418,7 @@
 							Last Name:
 						</label>
 						<div class = "col-sm-8">
-							<input type = "text" class = "form-control"  id = "ln" placeholder="Enter last name of student" required>
+							<input type = "text" class = "form-control"  name = "ln" placeholder="Enter last name of student" required>
 						</div>
 					</div>
 					<div class = "form-group">
@@ -450,7 +426,7 @@
 							Student ID:
 						</label>
 						<div class = "col-sm-8">
-							<input type = "text" class = "form-control"  id = "sid" placeholder="Enter student ID number" required>
+							<input type = "text" class = "form-control"  name = "sid" placeholder="Enter student ID number" required>
 						</div>
 					</div>
 					<div class = "form-group">
@@ -458,24 +434,26 @@
 							Fingerprint ID:
 						</label>
 						<div class = "col-sm-8">
-							<input type = "text" class = "form-control"  id = "fid" placeholder="Enter fingerprint ID number" required>
+							<input type = "text" class = "form-control"  name = "fid" placeholder="Enter fingerprint ID number" required>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class = "form-group">
+							<button type="button" class="btn btn-default btn-new" data-dismiss="modal">
+							<span class = "glyphicon glyphicon-remove"> </span>Cancel
+							</button>
+							<button type="submit" class="btn btn-default btn-new">
+							<span class = "glyphicon glyphicon-ok"> </span>Done
+							</button>
 						</div>
 					</div>
 				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default btn-new" data-dismiss="modal">
-				<span class = "glyphicon glyphicon-remove"> </span>Cancel
-				</button>
-				<button type="button" class="btn btn-default btn-new">
-				<span class = "glyphicon glyphicon-ok"> </span>Done
-				</button>
-			</div>
+			</div> <!-- Modal Body ends here -->				
 		</div>
 	</div>
 </div>
 
-<!-- Add Student Modal -->
+<!-- Edit Student Modal -->
 <!-- Credits at w3schools -->
 <div class="modal" id="EditStudent" role="dialog">
 	<div class="modal-dialog">
