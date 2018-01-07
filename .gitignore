@@ -5,6 +5,10 @@ db_dumps/
 info/
 keys/
 
+# Ignore config files
+
+config.py
+
 # Ignore pyc files
 
 *.pyc
