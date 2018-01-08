@@ -4,6 +4,7 @@ tmp/
 db_dumps/
 info/
 keys/
+flask/
 
 # Ignore config files
 config.py

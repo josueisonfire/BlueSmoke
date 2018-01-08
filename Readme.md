@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.com/nuwanwre/BlueSmoke.svg?token=1z3xh4vnpfYyonxSVqfV&branch=master)](https://travis-ci.com/nuwanwre/BlueSmoke)
-
 #  Cloud-Based, User-Friendly Biometric Attendance System
 
 ![BlueSmoke](/app/static/img/favicon.ico?raw=true "Optional Title")
@@ -8,7 +6,7 @@ This repository contains the source files for the system proposed in the __docs_
 
 If you are looking for technical details, the docs contain a detailed high level architecture of the system. We've done a comprehensive analysis on similar systems and realized many such implementations lack security/privacy measures. This system provides an additional layer of security to protect the privacy of users and their biometric data.
 
-Hardware was designed and implemented by **@josueisonfire.**
+Hardware designed and implemented by **@josueisonfire.**
 
 ## Repository Information
 
