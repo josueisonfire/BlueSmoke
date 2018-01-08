@@ -8,7 +8,7 @@
 # ===============================================================
 #													IMPORTS
 # ===============================================================
-from app import app
+from . import app
 # import psycopg2
 # Plaster
 import MySQLdb

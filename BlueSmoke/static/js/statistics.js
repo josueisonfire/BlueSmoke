@@ -7,7 +7,7 @@ function checkContainer() {
 } //wait 50 ms, then try again
 
 function drawGraph() {
-	var URL_BASE = "http://localhost:5000/stats";
+	var URL_BASE = "http://localhost/stats";
 
 
 	// set the dimensions and margins of the graph

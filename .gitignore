@@ -6,9 +6,8 @@ info/
 keys/
 
 # Ignore config files
-
 config.py
 
-# Ignore pyc files
-
+# Ignore pyc files and wsgi configs
 *.pyc
+*.wsgi

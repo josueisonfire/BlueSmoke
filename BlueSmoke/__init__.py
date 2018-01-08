@@ -24,4 +24,4 @@ def favicon():
                                'favicon.ico', mimetype='image/png')
 
 # import here to prevent circular reference at views.py
-from app import views
+from . import views
