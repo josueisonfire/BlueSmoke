@@ -1,6 +1,6 @@
 #  Cloud-Based, User-Friendly Biometric Attendance System
 
-![BlueSmoke](/app/static/img/favicon.ico?raw=true "Optional Title")
+![BlueSmoke](/BlueSmoke/static/img/favicon.ico?raw=true "Optional Title")
 
 This repository contains the source files for the system proposed in the __docs__ directory. In summary, the system provides an interface for Instructors to manage classes, attendance, generate statistical queries and manage connected devices.
 
