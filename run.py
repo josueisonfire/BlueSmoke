@@ -11,7 +11,7 @@
 
 
 #!flask/bin/python
-from app import app
+from BlueSmoke import app
 #from worker import worker
 
 # Encapsulate Run

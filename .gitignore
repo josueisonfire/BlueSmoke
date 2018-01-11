@@ -10,5 +10,8 @@ flask/
 config.py
 
 # Ignore pyc files and wsgi configs
-*.pyc
+*.py[cod]
 *.wsgi
+
+# appdb
+app.db

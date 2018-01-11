@@ -9,11 +9,15 @@
 
 from flask import Flask, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from config import Config
 import os
 
 app = Flask(__name__)
-app.config.from_object('config')	# reference to config.py
-#db = SQLAlchemy(app)
+# reference to config.py
+app.config.from_object(Config)	
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 #from models import dbObject
 
@@ -24,4 +28,4 @@ def favicon():
                                'favicon.ico', mimetype='image/png')
 
 # import here to prevent circular reference at views.py
-from . import views
+from . import views, models
