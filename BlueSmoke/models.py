@@ -23,8 +23,15 @@ class Instructor(db.Model):
 	firstName = db.Column(db.String(10))
 	lastName = db.Column(db.String(20))
 	password = db.Column(db.String(128))
+	devices = db.relationship('Devices', backref='instructor', lazy = 'dynamic')
 	
 	def __repr__(self):
 		return '<User {}>'.format(self.firstName)
 	
 # Class for Registered Devices
+class Devices(db.Model):
+	devId = db.Column(db.String(5), primary_key=True)
+	userId = db.Column(db.Integer, db.ForeignKey('instructor.id'))
+	
+	def __repr__(self):
+		return '<Device Id {}>'.format(self.devId)
