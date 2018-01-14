@@ -1,3 +1,6 @@
-from BlueSmoke.models import Attendance
+from BlueSmoke import db
+from BlueSmoke.models import Semesters
 
-att = Attendance('test')
+att = Semesters(sem='Fall 2017')
+db.session.add(att)
+db.session.commit()

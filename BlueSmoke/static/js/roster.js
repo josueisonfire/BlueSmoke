@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	$.ajax({
+	/*$.ajax({
 		url: '/getStudentData',
 		data: "{}",
 		dataType: "json",
@@ -19,5 +19,29 @@ $(document).ready(function() {
 		error: function (response) {
 				console.log(response);
 		}
-	});	
+	});	*/
+	
+	$(function(){
+		$("#terms").on('click', 'li a', function(){
+			$("#termbtn").text($(this).text());
+     	$("#termbtn").val($(this).text());
+		});
+	});
+	
+	$.ajax({
+		url: '/getTerms',
+		data: "{}",
+		dataType: "json",
+		success: function (data) {
+			$.each(data, function(i, item) {
+				$('#terms').append(
+					'<li><a href="#">' + item.sem + '</a></li>'
+				);
+			});
+		},
+		error: function (response) {
+				console.log(response);
+		}
+	});
+	
 });

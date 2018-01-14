@@ -33,13 +33,20 @@ class Devices(db.Model):
 	def __repr__(self):
 		return '<Device Id {}>'.format(self.devId)
 	
+# Class for Semesters
+class Semesters(db.Model):
+	sem = db.Column(db.String(20), primary_key=True)
+	
+	def __repr__(self):
+		return '<Semster {}>'.format(self.sem)
+	
 # Class for Intructors and their respective classes
 class Classes(db.Model):
 	classId = db.Column(db.String(10), primary_key=True)
 	userId = db.Column(db.Integer, db.ForeignKey('instructor.id'))
 	name = db.Column(db.String(30))
 	TAs = db.Column(db.String(50))
-	sem = db.Column(db.String(10))
+	sem = db.Column(db.String(20))
 	startDate = db.Column(db.DateTime)
 	endDate = db.Column(db.DateTime)
 	startTime = db.Column(db.DateTime)

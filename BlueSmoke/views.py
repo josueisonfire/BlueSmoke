@@ -9,6 +9,7 @@
 #													IMPORTS
 # ===============================================================
 from . import app
+from models import *
 from flask import Flask, render_template, redirect, request, session, jsonify, url_for
 import os
 from werkzeug import generate_password_hash, check_password_hash
@@ -129,6 +130,11 @@ def addStudent():
 def getStudentData():
 	return jsonify(getStudents())
 
+# >> Route to get Term List
+@app.route('/getTerms')
+def getTerms():
+	return jsonify(getTermList())
+
 # >> Route to get attendance data
 @app.route('/getAttendanceData')
 def getAttendanceData():
@@ -160,6 +166,15 @@ def getStats():
 # ===============================================================
 #														HELPERS AND PLASTERS
 # ===============================================================
+def getTermList():
+	try:
+		l = []
+		for u in Semesters.query.all():
+			l.append({'sem':u.sem})
+		return l
+	except Exception as e:
+		return "Error at getTermList()" + str(e)
+
 
 def addNewStudentData(fn, ln, sid, fid):
 	try:
