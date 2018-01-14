@@ -1,24 +1,17 @@
 # Contains all database related configurations
-# Postgre <3
+# MySQL InnoDB
+# Uses SQLAlchemy ORM techniques. Read the docs.
+# Any chnges here should be migrated and upgraded.
+# Again, read the docs for Alembic. 
+#
+# @version : 1.0.0
+# @author : nuwanwre ex BlueSmoke Labs. C412
+# ==============================================================
 
 from . import db
 from sqlalchemy import *
 import os
 
-# from sqlalchemy import Table, Column, Integer, String
-# from sqlalchemy.orm import mapper
-# from db import metadata, db_session
-
-# Class relations holds all the class related data
-# Tuples and their types :
-# 	ID : varchar(10)
-#		Name : varchar(30)
-#		TAs : varchar(50)
-#		startDate : date
-#		endDate : date
-#		startTime : time without timezone
-#	 	endTime : time without timezone 
-# 	attendanceTable : varchar(10)
 
 # Class for Instructor relation 
 class Instructor(db.Model):
@@ -46,6 +39,7 @@ class Classes(db.Model):
 	userId = db.Column(db.Integer, db.ForeignKey('instructor.id'))
 	name = db.Column(db.String(30))
 	TAs = db.Column(db.String(50))
+	sem = db.Column(db.String(10))
 	startDate = db.Column(db.DateTime)
 	endDate = db.Column(db.DateTime)
 	startTime = db.Column(db.DateTime)
@@ -54,8 +48,8 @@ class Classes(db.Model):
 	def __repr__(self):
 		return '<Class Id {}>'.format(self.classId)
 	
-# Dynamic table for Attendance. This table is used for Roster as 
-# well. 
+# Dynamic table for Attendance. 
+# This table is used for the Roster as well. 
 class Attendance:
 		
 	def __init__(self, name, dates):

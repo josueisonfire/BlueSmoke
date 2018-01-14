@@ -9,12 +9,7 @@
 #													IMPORTS
 # ===============================================================
 from . import app
-# import psycopg2
-# Plaster
-import MySQLdb
-
 from flask import Flask, render_template, redirect, request, session, jsonify, url_for
-# import MySQLdb
 import os
 from werkzeug import generate_password_hash, check_password_hash
 
@@ -30,11 +25,6 @@ from werkzeug import generate_password_hash, check_password_hash
 #											APP CONFIGURATIONS
 # ===============================================================
 
-#app = Flask(__name__)
-#app.config.from_object('config')	# load config.py
-
-conn = MySQLdb.connect("localhost", "root", "root", "blueSmoke")
-cursor = conn.cursor()
 
 # ===============================================================
 #													APP ROUTES
